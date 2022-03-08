@@ -1,5 +1,8 @@
 plugins {
     kotlin("multiplatform") version "1.6.10"
+
+    // ktlint
+    id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
 }
 
 group = "space.jgkang"
