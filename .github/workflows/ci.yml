@@ -1,0 +1,50 @@
+name: CI
+
+on: [push]
+
+jobs:
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup jdk
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - name: run gradle task
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: ktlintCheck
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup jdk
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - name: run gradle task
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: check
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup jdk
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - name: run gradle task
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build
