@@ -47,4 +47,4 @@ jobs:
       - name: run gradle task
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: build
+          arguments: jar
